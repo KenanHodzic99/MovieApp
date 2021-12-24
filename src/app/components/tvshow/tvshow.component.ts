@@ -14,10 +14,10 @@ import { SearchService } from 'src/app/services/search.service';
   styleUrls: ['./tvshow.component.css'],
   animations: [
     trigger('Grow', [
-      state('true', style({ width: '40%', margin: '0% 0% 0% 30%' })),
-      state('false', style({ width: '24%', margin: '0% 0% 0% 38%' })),
+      state('true', style({ width: '40%', margin: '0% 30% 0% 30%' })),
+      state('false', style({ width: '30%', margin: '0% 35% 0% 35%' })),
       transition('false <=> true', [
-        animate(500),
+        animate(250),
       ]),
     ]),
   ],
