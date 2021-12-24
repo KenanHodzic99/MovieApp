@@ -19,7 +19,7 @@
   display: inline-flex;
   flex-direction: row-reverse;
   margin-left: auto;
-  margin-bottom: auto;
+  margin-right: auto;
   margin-bottom: 1%;
   overflow: hidden;
 }

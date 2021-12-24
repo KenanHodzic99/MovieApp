@@ -15,6 +15,10 @@ header {
   text-align: center;
 }
 
+.buttons :hover {
+  cursor: pointer;
+}
+
 .button {
   background-color: rgb(66, 67, 68);
   padding: 0.5%;
