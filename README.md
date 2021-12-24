@@ -1,6 +1,6 @@
 # MovieApp
 
-An app for browsing through movies and tvshows, as well as seeing their details.
+An app for browsing through movies and tv shows, as well as seeing their details.
 
 ## Development server
 
