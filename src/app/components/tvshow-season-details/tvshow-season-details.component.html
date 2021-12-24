@@ -1,0 +1,14 @@
+<div class="season">
+    <div class="seasonDetails">
+        <div>{{season.name}}</div>
+        <div> · </div>
+        <div>Number of episodes: {{season.episode_count}}</div>
+        <div> · </div>
+        <div>Air date: {{generateFormatedDate(season.air_date)}}</div>
+        <fa-icon [icon]="expandIcon" (click)="showSeasonInfo()" [ngStyle]="{'color':'yellow'}"></fa-icon>
+    </div>
+    <div class="seasonShowMore" [@Expand]="animationState">
+        <img src={{generateSeasonPosterUrl(season.poster_path)}} />
+        <p>{{generateOverview(season.overview)}}</p>
+    </div>
+</div>

@@ -96,11 +96,24 @@
             "styles": [
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [],
+            "codeCoverage": true
+          }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "src/**/*.ts",
+              "src/**/*.html"
+            ]
           }
         }
       }
     }
   },
-  "defaultProject": "MovieApp"
+  "defaultProject": "MovieApp",
+  "cli": {
+    "defaultCollection": "@angular-eslint/schematics"
+  }
 }

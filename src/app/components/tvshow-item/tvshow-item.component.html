@@ -1,0 +1,26 @@
+<div class="card" [ngStyle]="{'background-image': 'url(' + imagePath + ')'}">
+    <img src={{posterPath}} />
+    <div class="container">
+        <div class="infoDiv">
+            <h3  [align]="'center'">{{show.name}}</h3>
+            <div class="infoHeader">
+                {{show.first_air_date}}
+                <div class="genres">
+                    <div *ngFor="let genre of showGenres, let i=index">
+                        <div *ngIf="i<showGenres.length-1; then thenBlock else elseBlock"></div>
+                            <ng-template #thenBlock>{{genre.name + "/"}}</ng-template>
+                            <ng-template #elseBlock>{{genre.name}}</ng-template>
+                    </div>
+                </div>
+            </div>
+            <div class="overview">
+                {{show.overview}}
+            </div>
+        </div>
+        <div class="footer">
+            <button [routerLink]="['/tvshows/',show.id]" class="button">View more...</button>
+            {{show.vote_average}}
+            <fa-icon [ngStyle]="{'color': 'yellow'}" [icon]="iconStar"></fa-icon>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,42 @@
+.season {
+  flex-direction: row;
+  width: 96%;
+  background-color: rgba(0, 0, 0, 0.6);
+  margin: 1%;
+  padding: 1%;
+  text-align: center;
+}
+
+.season div {
+  margin-left: auto;
+  margin-right: auto;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.seasonDetails {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.seasonDetails fa-icon:hover {
+  cursor: pointer;
+  transform: scale(1.5);
+}
+
+.seasonShowMore {
+  display: flex;
+  background-color: rgba(255, 255, 255, 0.5);
+  padding: 1%;
+  margin-top: 0.5%;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.seasonShowMore p {
+  text-align: justify;
+  margin: 1%;
+}

@@ -1,0 +1,38 @@
+.logo {
+  text-align: center;
+  display: block;
+}
+
+header {
+  display: block;
+  align-items: baseline;
+  padding-bottom: 1%;
+  margin-bottom: 2%;
+}
+
+.buttons {
+  margin-top: 1%;
+  text-align: center;
+}
+
+.button {
+  background-color: rgb(66, 67, 68);
+  padding: 0.5%;
+  border-style: solid;
+  border: none;
+  border-color: yellow;
+  min-width: 200px;
+  color: yellow;
+}
+
+.buttonSelected {
+  background-color: rgb(66, 67, 68);
+  padding: 0.5%;
+  border-left: 0;
+  border-top: 0;
+  border-right: 0;
+  border-style: solid;
+  border-color: yellow;
+  color: yellow;
+  min-width: 200px;
+}

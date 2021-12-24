@@ -1,0 +1,24 @@
+<div (click)="showSearchBar()"  class="searchContainer" [@Grow]="animationState">
+    <fa-icon class="icon" [ngStyle]="{'color':'black'}" [icon]="searchIcon" ></fa-icon>
+    <input type="text" [(ngModel)]="searchQuery" placeholder="Search.." class="searchBar" (input)="filterMovies()" (keydown)="filterMovies()"/>
+</div>
+<div *ngIf="hasResults" class="container">
+    <app-movie-item class="movieItem" *ngFor="let movie of movies.results" [movie]="movie"></app-movie-item>
+</div>
+<div *ngIf="!hasResults" class="noMovies">
+    <fa-icon [icon]="sadSmiley" size="10x"></fa-icon>
+    <h1>Unfortunately, there are no movies that match your search.</h1>
+</div>
+<div class="showMoreContainer">
+    <div class="showMore">
+        <div [ngStyle]="{'color': displayPage > 1 ?  'yellow' : 'rgb(66, 67, 68)'}" class="showLessButton" (click)="previousPage()" >
+            <fa-icon [icon]="arrowLeftIcon" size="2x"></fa-icon>
+        </div>
+        <div *ngIf="movies.total_pages !== 0" class="seperator">
+            <span>{{displayPage}}</span>
+        </div>
+        <div [ngStyle]="{'color': displayPage < movies.total_pages ?  'yellow' : 'rgb(66, 67, 68)'}" class="showMoreButton" (click)="nextPage()" >
+            <fa-icon [icon]="arrowRightIcon" size="2x"></fa-icon>
+        </div>
+    </div>
+</div>

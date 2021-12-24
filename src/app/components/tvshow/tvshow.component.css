@@ -1,0 +1,107 @@
+.container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.tvShowItem {
+  min-width: 500px;
+  max-width: 30%;
+  max-height: 35%;
+  min-height: 278px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 1%;
+  margin-bottom: 1%;
+}
+.searchContainer {
+  display: inline-flex;
+  flex-direction: row-reverse;
+  margin-left: 38%;
+  margin-bottom: 1%;
+  overflow: hidden;
+}
+
+.icon {
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  border-left: white;
+  height: 25px;
+  width: auto;
+  padding: 5px;
+  background-color: white;
+}
+
+.searchBar {
+  width: 95%;
+  padding: 5px;
+  border: none;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  outline: none;
+}
+
+.showMoreContainer {
+  width: 100%;
+  text-align: center;
+  margin-top: 1%;
+  margin-bottom: 3%;
+}
+
+.showMore {
+  display: flex;
+}
+
+.showMoreButton {
+  margin-right: auto;
+  margin-top: auto;
+  margin-bottom: auto;
+  min-width: 7%;
+  color: yellow;
+  font-size: 100%;
+  font-weight: lighter;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.showLessButton {
+  margin-left: auto;
+  margin-top: auto;
+  margin-bottom: auto;
+  min-width: 7%;
+  color: yellow;
+  font-size: 100%;
+  font-weight: lighter;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.seperator {
+  color: yellow;
+  text-align: center;
+  font-size: 270%;
+  margin-bottom: 0.4%;
+  border: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.showMoreButton:hover {
+  cursor: pointer;
+  border: none;
+  transform: scale(1.2);
+}
+
+.noTVShows {
+  text-align: center;
+  margin-top: 9%;
+  margin-bottom: auto;
+  color: yellow;
+}

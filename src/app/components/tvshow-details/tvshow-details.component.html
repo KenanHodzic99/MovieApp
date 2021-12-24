@@ -1,0 +1,70 @@
+<div class="backContainer" (click)="goBack()">
+    <fa-icon [icon]="arrowLeft"></fa-icon>
+    Back
+</div>
+<div class="mainContainer">
+    <div *ngIf="hasVideo(show.videos)" class="videoContainer" [ngStyle]="{'background' : 'url(' + generateBackdropUrl(show.backdrop_path) + ')', 
+    'background-repeat' : 'no-repeat', 'background-size': 'cover'}">
+        <iframe [src]="getSafeVideoUrl()" frameborder="0" allowfullscreen></iframe>
+    </div>
+    <div *ngIf="!hasVideo(show.videos)" class="imageContainer" [ngStyle]="{'background' : 'url(' + generateBackdropUrl(show.backdrop_path) + ')', 
+    'background-repeat' : 'no-repeat', 'background-size': 'cover'}">
+        <div class="poster">
+            <img src={{generatePosterUrl(show.poster_path)}} />
+        </div>
+    </div>
+    <div class="infoDiv">
+        <div class="infoHeader">
+            <div class="title">
+            <h1>{{show.name}}</h1>
+            <h4>{{show.tagline}}</h4>
+            </div>
+            <div class="rating">
+                <div>{{show.vote_average}}</div>
+                <fa-icon [icon]="starIcon" [ngStyle]="{'color':'yellow'}"></fa-icon>
+            </div>
+        </div>
+            <div class="infoContainer">
+                <div>
+                    TV show status: {{show.status}}
+                </div>
+                <div> · </div>
+                <div>
+                    Seasons: {{show.number_of_seasons}}
+                </div>
+                <div> · </div>
+                <div>
+                    Episodes: {{show.number_of_episodes}}
+                </div>
+                <div> · </div>
+                <div>
+                    Episode run time: ~{{show.episode_run_time}}min
+                </div>
+                <div> · </div>
+                <div>
+                    Release date: {{generateFormatedDate(show.first_air_date)}}
+                </div>
+                <div> · </div>
+                <div class="genres">
+                    <div *ngFor="let genre of show.genres, let i=index">
+                        <div *ngIf="i < show.genres.length - 1; then thenBlock else elseBlock"></div>
+                        <ng-template #thenBlock>{{genre.name + "/"}}</ng-template>
+                        <ng-template #elseBlock>{{genre.name}}</ng-template>
+                    </div>
+                </div>
+            </div>
+        <div class="infoBody">
+            <p>{{generateOverview(show.overview)}}</p>
+        </div>
+        <div class="seasonsDiv">
+            <app-tvshow-season-details *ngFor="let season of show.seasons" [season]="season"></app-tvshow-season-details>
+        </div>
+        <h4 *ngIf="hasCreators">Created by</h4>
+        <div class="infoFooter">
+            <div *ngFor="let creator of show.created_by" class="creators">
+                <img src={{generateProfilePath(creator.profile_path)}} />
+                <span>{{creator.name}}</span>
+            </div>
+        </div>
+    </div>
+</div>

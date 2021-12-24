@@ -1,0 +1,59 @@
+<div class="backContainer" (click)="goBack()">
+    <fa-icon [icon]="arrowLeft"></fa-icon>
+    Back
+</div>
+<div class="mainContainer">
+    <div *ngIf="hasVideo(movie.videos)" class="videoContainer" [ngStyle]="{'background' : 'url(' + generateBackdropUrl(movie.backdrop_path) + ')', 
+    'background-repeat' : 'no-repeat', 'background-size': 'cover'}">
+        <iframe [src]="getSafeVideoUrl()" frameborder="0" allowfullscreen></iframe>
+    </div>
+    <div *ngIf="!hasVideo(movie.videos)" class="imageContainer" [ngStyle]="{'background' : 'url(' + generateBackdropUrl(movie.backdrop_path) + ')', 
+    'background-repeat' : 'no-repeat', 'background-size': 'cover'}">
+        <div class="poster">
+            <img src={{generatePosterUrl(movie.poster_path)}} />
+        </div>
+    </div>
+    <div class="infoDiv">
+        <div class="infoHeader">
+            <div class="title">
+            <h1>{{movie.title}}</h1>
+            <h4>{{movie.tagline}}</h4>
+            </div>
+            <div class="rating">
+                <div>{{movie.vote_average}}</div>
+                <fa-icon [icon]="starIcon" [ngStyle]="{'color':'yellow'}"></fa-icon>
+            </div>
+        </div>
+            <div class="infoContainer">
+                <div>
+                    Movie status: {{movie.status}}
+                </div>
+                <div> · </div>
+                <div>
+                    Release date: {{generateFormatedDate(movie.release_date)}}
+                </div>
+                <div> · </div>
+                <div>
+                    Runtime: {{movie.runtime + " min"}}
+                </div>
+                <div> · </div>
+                <div class="genres">
+                    <div *ngFor="let genre of movie.genres, let i=index">
+                        <div *ngIf="i < movie.genres.length - 1; then thenBlock else elseBlock"></div>
+                        <ng-template #thenBlock>{{genre.name + "/"}}</ng-template>
+                        <ng-template #elseBlock>{{genre.name}}</ng-template>
+                    </div>
+                </div>
+            </div>
+        <div class="infoBody">
+            <p>{{generateOverview(movie.overview)}}</p>
+        </div>
+        <h4 *ngIf="hasProductionCompanies" >Production companies</h4>
+        <div class="infoFooter">
+            <div *ngFor="let company of movie.production_companies" class="productionCompanies">
+                <img src={{generateLogoPath(company.logo_path)}} />
+                <span>{{company.name}}</span>
+            </div>
+        </div>
+    </div>
+</div>

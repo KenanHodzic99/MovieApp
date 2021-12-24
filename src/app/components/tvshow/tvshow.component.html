@@ -1,0 +1,25 @@
+<div (click)="showSearchBar()"  class="searchContainer" [@Grow]="animationState">
+    <fa-icon class="icon" [ngStyle]="{'color':'black'}" [icon]="searchIcon" ></fa-icon>
+    <input type="text" [(ngModel)]="searchQuery" placeholder="Search.." class="searchBar" (input)="filterTvShows()"/>
+</div>
+<div *ngIf="hasResults" class="container">
+    <app-tvshow-item class="tvShowItem" *ngFor="let show of shows.results" [show]="show"></app-tvshow-item>
+</div>
+<div *ngIf="!hasResults" class="noTVShows">
+    <fa-icon [icon]="sadSmiley" size="10x"></fa-icon>
+    <h1>Unfortunately, there are no TV shows that match your search.</h1>
+</div>
+<div class="showMoreContainer">
+    <div class="showMore">
+        <div [ngStyle]="{'color': displayPage > 1 ?  'yellow' : 'rgb(66, 67, 68)'}" class="showLessButton" (click)="previousPage()" >
+            <fa-icon [icon]="arrowLeftIcon" size="2x"></fa-icon>
+        </div>
+        <div *ngIf="shows.total_pages !== 0" class="seperator">
+            <span>{{displayPage}}</span>
+        </div>
+        <div [ngStyle]="{'color': displayPage < shows.total_pages ?  'yellow' : 'rgb(66, 67, 68)'}" class="showMoreButton" (click)="nextPage()" >
+            <fa-icon [icon]="arrowRightIcon" size="2x"></fa-icon>
+        </div>
+    </div>
+</div>
+
