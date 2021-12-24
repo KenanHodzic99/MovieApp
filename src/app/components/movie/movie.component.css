@@ -18,7 +18,8 @@
 .searchContainer {
   display: inline-flex;
   flex-direction: row-reverse;
-  margin-left: 38%;
+  margin-left: auto;
+  margin-bottom: auto;
   margin-bottom: 1%;
   overflow: hidden;
 }
