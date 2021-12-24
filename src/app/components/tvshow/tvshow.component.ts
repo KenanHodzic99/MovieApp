@@ -62,7 +62,7 @@ export class TvshowComponent implements OnInit {
   }
 
   filterTvShows(): void {
-    if (this.searchQuery.length > 3) {
+    if (this.searchQuery.length >= 3) {
       if (this.searchQuery === this.searchService.getLatestSearch()) {
         this.tvshowService.searchTVShows(this.searchQuery, this.displayPage).subscribe((shows) => {
           this.shows = shows;

@@ -63,7 +63,7 @@ export class MovieComponent implements OnInit {
   }
 
   filterMovies(): void {
-    if (this.searchQuery.length > 3) {
+    if (this.searchQuery.length >= 3) {
       if (this.searchQuery === this.searchService.getLatestSearch()) {
         this.movieService.searchMovies(this.searchQuery, this.displayPage).subscribe((movies) => {
           this.movies = movies;
